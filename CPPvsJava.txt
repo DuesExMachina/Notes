@@ -1,0 +1,25 @@
+CPP 20 provides default contructor which can work as a setter by default.
+CPP can convert 1 and 0 to there respective boolean values tru and false by default if the return type of the function is bool and we are returning 1 and 0:
+Example:-
+bool findTriplets(int arr[], int n)
+    { 
+        //Your code here
+        sort(arr,arr+n);
+        for(int i = 0; i < n; i++)
+        {
+            int left = i+1;
+            int right = n-1;
+            
+            while(left < right)
+            {
+                int sum = arr[i]+arr[left]+arr[right];
+                if(sum == 0)
+                    return 1;
+                else if(sum > 0)
+                    right--;
+                else if(sum < 0)
+                    left++;
+            }
+        }
+        return 0;
+    }
